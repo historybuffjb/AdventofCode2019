@@ -35,9 +35,9 @@ void Intcode::calculateMultiplication(int index) {
     currentProgram[resultIndex] = currentProgram[leftIndex] * currentProgram[rightIndex];
 }
 
-std::vector<int> Intcode::resetProgram() {
-    currentProgram[1] = 12;
-    currentProgram[2] = 2;
+std::vector<int> Intcode::resetProgram(int leftInput, int rightInput) {
+    currentProgram[1] = leftInput;
+    currentProgram[2] = rightInput;
     int index = 0;
     while (index < currentProgram.size()) {
        bool result = calculateProgramRow(index);

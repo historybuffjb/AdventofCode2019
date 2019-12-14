@@ -9,5 +9,5 @@ class Intcode {
 
     public:
         Intcode(std::vector<int>);
-        std::vector<int> resetProgram();
+        std::vector<int> resetProgram(int, int);
 };

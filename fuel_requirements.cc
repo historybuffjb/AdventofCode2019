@@ -8,14 +8,19 @@ FuelRequirements::FuelRequirements(std::string storagePath) {
    path = storagePath; 
 }
 
-int FuelRequirements::calculateIndividualModule(int module_size) {
-    return floor(module_size/3 - 2);
+int FuelRequirements::calculateIndividualModule(int moduleSize) {
+    int result = 0;
+    do {
+        moduleSize = floor(moduleSize / 3 - 2);
+        result += moduleSize;
+    } while (floor(moduleSize / 3 - 2) > 0);
+    return result;
 }
 
 int FuelRequirements::calculateTotalRequirements() {
     std::ifstream moduleFile;
     std::string moduleSize;
-    int result;
+    int result = 0;
     moduleFile.open(path);
     if (moduleFile.is_open()) {
         while (getline(moduleFile, moduleSize)) {
